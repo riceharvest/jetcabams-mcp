@@ -16,6 +16,12 @@ Official remote [Model Context Protocol](https://modelcontextprotocol.io) server
 - **list_services** (read-only): fixed-price Schiphol routes, private tours and cars with passenger and luggage limits and prices.
 - **get_quote** (read-only): exact price and rule check for one ride; returns a signed `quoteToken` valid for 15 minutes. No booking, no email, no payment.
 - **request_booking**: sends the quoted ride as a booking request with the customer's name, email and phone, only after the customer approved the price and accepted the Terms. The customer confirms the request through a link emailed to them before the business sees it. Nothing is charged through MCP.
+- **get_booking_status** (read-only): where a booking request stands; needs the bookingId from request_booking and the customer's email.
+- **cancel_booking**: cancels a booking at the customer's explicit request; needs the bookingId and the customer's email.
+
+## Agent skill
+
+[`skills/jet-cab-ams-chauffeur/SKILL.md`](skills/jet-cab-ams-chauffeur/SKILL.md) tells an agent when to use this server and how to book. Drop it into your agent's skills folder (e.g. `~/.claude/skills/`).
 
 ## Connect
 
